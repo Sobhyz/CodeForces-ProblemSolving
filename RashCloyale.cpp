@@ -14,10 +14,16 @@ int main(){
     tmp1=a[n-1]+b[n-2];
     tmp2=a[n-2]+b[n-1];
     for(int i=0;i<n;i++){
-        long long int t1= *lower_bound(a,a+n,tmp1-b[i]);
-        long long int t2= *lower_bound(b,b+n,tmp2-a[i]);
-        if(t1+b[i]>=tmp1)ans=min(ans,t1+b[i]);
-        if(t2+a[i]>=tmp2)ans=min(ans,t2+a[i]);
+        if(b[n-1]+a[i]>=tmp1){
+            tmp1=min(b[n-1]+a[i],tmp1);
+        }
+        ans=min(tmp1,ans);
+    }
+    for(int i=0;i<n;i++){
+        if(a[n-1]+b[i]>=tmp2){
+            tmp2=min(a[n-1]+b[i],tmp2);
+        }
+        ans=min(tmp2,ans);
     }
     cout<<ans;
 }
