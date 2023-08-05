@@ -32,9 +32,11 @@ int main(){
     cin>>a>>b;
     memset(mn,0x3f3f3f3f,sizeof mn);
     memset(freq,0,sizeof freq);
+    for(long long int i=1;i<=(int)1e6;i++){
+        comp(i);
+    }
     for(long long int i=a;i<=b;i++){
-        long long int x=comp(i);
-        ans+=x;
+        ans+=mn[i];
     }
     cout<<ans;
 }
