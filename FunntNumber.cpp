@@ -7,12 +7,14 @@ long long int freq[N],ans=0,a,b,mn[N];
 long long int comp(long long int n){
     long long int tmp=n,sum=0;
     // cout<<n<<endl;
+    if(n<=4)return n;
     while(tmp>=1){
         sum+=((tmp%10)*(tmp%10));
         tmp/=10;
     }
-    if(!freq[n]){freq[n]=1;return mn[n]=min(min(n,mn[n]),comp(sum));}
-    return mn[n]=min(n,min(mn[sum],mn[n]));
+    n=sum;
+    if(n<=4)return n;
+    return comp(n);
 }
 int main(){
     cin>>a>>b;
